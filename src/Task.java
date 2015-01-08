@@ -23,6 +23,13 @@ public class Task {
     public String getDescription() {
         return description;
     }
+    
+    public boolean validate(){
+        if(name==null || description==null || name.equals("") || description.equals(""))
+            return false;
+        else 
+            return true;
+    }
 
     @Override
     public String toString() {
