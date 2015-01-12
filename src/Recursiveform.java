@@ -6,6 +6,7 @@ public class Recursiveform extends javax.swing.JFrame {
     DefaultListModel model;
     int nums[] = new int[100000];
    
+   
     public Recursiveform() {
         initComponents();
         model= new DefaultListModel();
@@ -23,8 +24,8 @@ public class Recursiveform extends javax.swing.JFrame {
         btnbubble = new javax.swing.JButton();
         btnselc = new javax.swing.JButton();
         btninsert = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        lstnums = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        lstnums = new javax.swing.JList();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -60,28 +61,23 @@ public class Recursiveform extends javax.swing.JFrame {
             }
         });
 
-        lstnums.setColumns(20);
-        lstnums.setRows(5);
-        jScrollPane2.setViewportView(lstnums);
+        jScrollPane3.setViewportView(lstnums);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(btngenerate))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnselc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btninsert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnbubble, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btngenerate)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnselc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btninsert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnbubble, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,7 +86,7 @@ public class Recursiveform extends javax.swing.JFrame {
                 .addComponent(btngenerate)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                         .addComponent(btnbubble)
                         .addGap(72, 72, 72)
                         .addComponent(btnselc)
@@ -98,9 +94,9 @@ public class Recursiveform extends javax.swing.JFrame {
                         .addComponent(btninsert)
                         .addGap(126, 126, 126))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(50, Short.MAX_VALUE))))
+                        .addGap(30, 30, 30)
+                        .addComponent(jScrollPane3)
+                        .addContainerGap())))
         );
 
         pack();
@@ -147,6 +143,7 @@ public class Recursiveform extends javax.swing.JFrame {
         for (int x = 0;x < nums.length;x ++){
             model.addElement(nums[x]);
     }//GEN-LAST:event_btninsertActionPerformed
+    }
     
 public static void selectionSort(int[] a){
    for (int i = 0; i < a.length - 1; i++){
@@ -271,8 +268,8 @@ public static void insertionSort(int a[]){
     private javax.swing.JButton btninsert;
     private javax.swing.JButton btnselc;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea lstnums;
+    private javax.swing.JList lstnums;
     // End of variables declaration//GEN-END:variables
 }
