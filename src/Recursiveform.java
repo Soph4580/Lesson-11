@@ -26,6 +26,7 @@ public class Recursiveform extends javax.swing.JFrame {
         btninsert = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         lstnums = new javax.swing.JList();
+        btnqsort = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -63,6 +64,13 @@ public class Recursiveform extends javax.swing.JFrame {
 
         jScrollPane3.setViewportView(lstnums);
 
+        btnqsort.setText("Quick Sort");
+        btnqsort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnqsortActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,30 +81,34 @@ public class Recursiveform extends javax.swing.JFrame {
                     .addComponent(btngenerate)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnselc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btninsert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnbubble, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btninsert, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                            .addComponent(btnselc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnbubble, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnqsort, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(24, 24, 24)
                 .addComponent(btngenerate)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                         .addComponent(btnbubble)
-                        .addGap(72, 72, 72)
+                        .addGap(63, 63, 63)
                         .addComponent(btnselc)
-                        .addGap(81, 81, 81)
+                        .addGap(70, 70, 70)
                         .addComponent(btninsert)
-                        .addGap(126, 126, 126))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jScrollPane3)
-                        .addContainerGap())))
+                        .addGap(67, 67, 67)
+                        .addComponent(btnqsort)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -141,9 +153,21 @@ public class Recursiveform extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Time it took: " + etime + " seconds.");
         //rebuild list
         for (int x = 0;x < nums.length;x ++){
-            model.addElement(nums[x]);
+            model.addElement(nums[x]);}
     }//GEN-LAST:event_btninsertActionPerformed
-    }
+
+    private void btnqsortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnqsortActionPerformed
+        model.clear();
+        long stime = System.currentTimeMillis();
+        quickSort(nums,0,nums.length-1);
+        long etime = (System.currentTimeMillis() - stime)/1000;
+        JOptionPane.showMessageDialog(this, "Time it took: " + etime + " seconds.");
+        for (int x = 0;x < nums.length;x ++){
+            model.addElement(nums[x]);}
+    }//GEN-LAST:event_btnqsortActionPerformed
+    
+    
+    
     
 public static void selectionSort(int[] a){
    for (int i = 0; i < a.length - 1; i++){
@@ -215,7 +239,7 @@ public static void insertionSort(int a[]){
      int i= left;
      int j= right;
      int pivotValue=a[(left + right)/2];
-     while(i>j){
+     while(i<j){
          while(a[i] < pivotValue)i++;
          while(pivotValue<a[j])j--;
          if(i<=j){
@@ -266,6 +290,7 @@ public static void insertionSort(int a[]){
     private javax.swing.JButton btnbubble;
     private javax.swing.JButton btngenerate;
     private javax.swing.JButton btninsert;
+    private javax.swing.JButton btnqsort;
     private javax.swing.JButton btnselc;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
